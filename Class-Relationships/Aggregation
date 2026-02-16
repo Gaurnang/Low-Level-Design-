@@ -4,7 +4,7 @@ Aggregation is a weak HAS-A relationship.
 ✔ The container does not fully own the object
 
 ✅ Example: Department and Professor
-Scenario:
+Scenario
 
 A Department has Professors.
 If the department is deleted, professors still exist.
