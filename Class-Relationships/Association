@@ -1,0 +1,41 @@
+Association is a relationship where one class uses or references another class.
+
+✔ Objects exist independently
+✔ No strong ownership
+class Course {
+    private String courseName;
+
+    Course(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+}
+
+<<----------------------------------------------------------------->>
+
+class Student {
+    private String name;
+    private Course course;   // Association (reference)
+
+    Student(String name, Course course) {
+        this.name = name;
+        this.course = course;
+    }
+
+    void display() {
+        System.out.println(name + " enrolled in " + course.getCourseName());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Course c1 = new Course("Java Programming");
+        Student s1 = new Student("Rahul", c1);
+
+        s1.display();
+    }
+}
