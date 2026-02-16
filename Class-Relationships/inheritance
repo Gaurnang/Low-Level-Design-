@@ -1,0 +1,34 @@
+// Parent class
+class Person {
+    protected String name;
+    protected int age;
+
+    void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+// Child class
+class Student extends Person {
+    private int rollNo;
+
+    Student(String name, int age, int rollNo) {
+        this.name = name;   // inherited field
+        this.age = age;     // inherited field
+        this.rollNo = rollNo;
+    }
+
+    void displayStudent() {
+        displayInfo();   // inherited method
+        System.out.println("Roll No: " + rollNo);
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Student s = new Student("Rahul", 20, 101);
+        s.displayStudent();
+    }
+}
