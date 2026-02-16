@@ -2,6 +2,9 @@ Association is a relationship where one class uses or references another class.
 
 ✔ Objects exist independently
 ✔ No strong ownership
+
+
+<<---------------------------------------------------------------->>
 class Course {
     private String courseName;
 
@@ -13,8 +16,6 @@ class Course {
         return courseName;
     }
 }
-
-<<----------------------------------------------------------------->>
 
 class Student {
     private String name;
