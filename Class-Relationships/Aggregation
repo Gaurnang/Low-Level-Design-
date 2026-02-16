@@ -1,0 +1,63 @@
+Aggregation is a weak HAS-A relationship.
+
+✔ The contained object can exist independently
+✔ The container does not fully own the object
+
+✅ Example: Department and Professor
+Scenario:
+
+A Department has Professors.
+If the department is deleted, professors still exist.
+
+<<------------------------------------------------------------------------->>
+import java.util.List;
+import java.util.ArrayList;
+
+class Professor {
+    private String name;
+
+    Professor(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+class Department {
+    private String deptName;
+    private List<Professor> professors;
+
+    // Professors are passed from outside → weak ownership
+    Department(String deptName, List<Professor> professors) {
+        this.deptName = deptName;
+        this.professors = professors;
+    }
+
+    void showProfessors() {
+        System.out.println("Department: " + deptName);
+        for (Professor p : professors) {
+            System.out.println(p.getName());
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Professors created independently
+        Professor p1 = new Professor("Dr. Sharma");
+        Professor p2 = new Professor("Dr. Rao");
+
+        List<Professor> list = new ArrayList<>();
+        list.add(p1);
+        list.add(p2);
+
+        Department dept = new Department("Computer Science", list);
+
+        dept.showProfessors();
+
+        // Even if dept is removed, professors still exist
+    }
+}
